@@ -7,6 +7,7 @@ h3 {
 p.center {
 	text-align: center;
 }
-img {
-	align: center;
+img.center {
+    display: block;
+    margin: 0 auto;
 }
