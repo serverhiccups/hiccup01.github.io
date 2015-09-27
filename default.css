@@ -4,6 +4,9 @@ h1 {
 h3 {
 	text-align: center;
 }
-div.container-4 {
-	text-align: left;
+p.center {
+	text-align: center;
+}
+img {
+	align: center;
 }
