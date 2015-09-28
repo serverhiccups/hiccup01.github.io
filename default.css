@@ -13,9 +13,8 @@ img.centersize {
 }
 li {
 	display: inline;
-	margin: 0 auto;
 }
-ul {
-	margin: 0;
+ul.navlinks {
+	margin: 0 auto;
     padding: 0;
 }
