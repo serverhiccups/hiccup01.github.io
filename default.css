@@ -13,6 +13,7 @@ img.centersize {
 }
 li {
 	display: inline;
+	margin: 0 auto;
 }
 ul {
 	margin: 0;
