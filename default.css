@@ -14,3 +14,7 @@ img.centersize {
 li {
 	display: inline;
 }
+ul {
+	margin: 0;
+    padding: 0;
+}
