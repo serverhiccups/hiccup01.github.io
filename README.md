@@ -1,2 +1,2 @@
 # hiccup01.github.com
-Hiccup01 website
+https://hiccup01.github.io
