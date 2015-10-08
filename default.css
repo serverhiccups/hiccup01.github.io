@@ -19,6 +19,9 @@ h3.title {
 span.glyphicon-option-horizontal {
 	font-size:6.7em;
 }
-ul.vertalign {
+div.links {
 	float: left;
+}
+p.20px {
+	padding-right: 20px;
 }
