@@ -8,8 +8,6 @@ img.centersize {
     display: block;
     margin: 0 auto;
 }
-li {
-	display: inline;
 }
 div.navlinks {
 	margin: 0 0;
@@ -18,4 +16,10 @@ div.navlinks {
 h3.title {
 	color:black;
 	text-align: center;
+}
+span.glyphicon-option-horizontal {
+	font-size:6.7em;
+}
+div.links {
+	float: left;
 }
