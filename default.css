@@ -23,3 +23,6 @@ span.glyphicon-option-horizontal {
 div.links {
 	float: left;
 }
+.vert-align {
+	vertical-align: middle;
+}
