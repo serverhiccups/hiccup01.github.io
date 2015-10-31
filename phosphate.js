@@ -5,6 +5,7 @@ function () {
  }();
  setTimeout(function() {
 $(document).ready(function(){
+	alert('Code ran.');
     var scratch_player = $(".stage");
     var url = window.location.href;
     url = url.substr(33,40);
