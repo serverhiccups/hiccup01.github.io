@@ -1,0 +1,5 @@
+javascript: (function () { 
+  	var jsCode = document.createElement('script'); 
+    jsCode.setAttribute('src', 'http://hiccup01.com/phosphate.js');                  
+  document.body.appendChild(jsCode);
+ }());
