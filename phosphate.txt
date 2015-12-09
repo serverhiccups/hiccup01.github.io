@@ -1,5 +1,5 @@
 javascript: (function () { 
-  	var jsCode = document.createElement('script'); 
-    jsCode.setAttribute('src', 'http://hiccup01.com/phosphate.js');                  
+  	var jsCode = document.createElement('script');
+    jsCode.setAttribute('src', 'https://raw.githubusercontent.com/phosphateJS/phosphateJS/master/phosphate.js');            
   document.body.appendChild(jsCode);
  }());
