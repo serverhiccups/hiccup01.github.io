@@ -33,8 +33,9 @@ div.links {
 iframe {
 	height:300px;
 	width:300px;
+        margin: auto;
 }
 div.iframe {
-	margin: auto;
-}
+
+
 }
