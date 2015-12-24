@@ -1,6 +1,6 @@
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 // URL query get function
-var qs = (function(a) {
+function qs(a) {
     if (a == "") return {};
     var b = {};
     for (var i = 0; i < a.length; ++i)
