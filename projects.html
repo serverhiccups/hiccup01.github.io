@@ -6,6 +6,12 @@
 	<link rel="shortcut icon" href="/img/logo.ico">
 	<link rel="icon" type="image/png" href="/img/logo.png">
 	<link rel="stylesheet" type="text/css" href="default.css">
+  <script type="text/javascript">
+    function githublinks (url) {
+      window.open(url);
+    }
+    var link = new Array("https://github.com/hiccup01/enjoyable-mappings")
+  </script>
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -42,6 +48,6 @@
 </nav>
 <p>A list of my projects;</p>
 <ul>
-  <li><a href="projects/enjoyable-mappings.html">enjoyable-mappings</a></li>
+  <li><a onclick="githublinks(link[0])" href="#">enjoyable-mappings</a></li>
 </body>
 </html>
