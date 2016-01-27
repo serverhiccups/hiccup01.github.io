@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>6.9. Searching for Packages</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css" /><link rel="stylesheet" media="print" href="Common_Content/css/print.css" type="text/css" /><meta name="generator" content="publican 3.0" /><meta name="package" content="Debian-debian-handbook-6.0-en-US-1.0-1" /><meta name="keywords" content="apt-get, apt-cache, aptitude, synaptic, sources.list, apt-cdrom" /><link rel="home" href="index.html" title="The Debian Administrator's Handbook" /><link rel="up" href="apt.html" title="Chapter 6. Maintenance and Updates: The APT Tools" /><link rel="prev" href="sect.automatic-upgrades.html" title="6.8. Automatic Upgrades" /><link rel="next" href="solving-problems.html" title="Chapter 7. Solving Problems and Finding Relevant Information" /></head><body><p class="hidden" id="title"><a class="left" href="http://www.debian.org"><img src="Common_Content/images/image_left.png" alt="Product Site" /></a><a class="right" href="http://debian-handbook.info"><img src="Common_Content/images/image_right.png" alt="Documentation Site" /></a></p><ul class="docnav"><li class="previous"><a accesskey="p" href="sect.automatic-upgrades.html"><strong>Prev</strong></a></li><li class="home">The Debian Administrator's Handbook</li><li class="next"><a accesskey="n" href="solving-problems.html"><strong>Next</strong></a></li></ul><div class="section"><div class="titlepage"><div><div><h2 class="title" id="sect.searching-packages">6.9. Searching for Packages</h2></div></div></div><div class="para"><p></p>
+			With the large and ever-growing amount of software in Debian, there emerges a paradox: Debian usually has a tool for most tasks, but that tool can be very difficult to find amongst the myriad other packages. The lack of appropriate ways to search for (and to find) the right tool has long been a problem. Fortunately, this problem has almost entirely been solved.
+		</div><div class="para"><p></p>
+			The most trivial search possible is looking up an exact package name. If <code class="command">apt-cache show <em class="replaceable"><code>package</code></em></code> returns a result, then the package exists. Unfortunately, this requires knowing or even guessing the package name, which isn't always possible.
+		</div><div class="sidebar"><div class="titlepage"><div><div><h6><span class="emphasis"><em>TIP</em></span> Package naming conventions</h6></div></div></div><div class="para"><p></p>
+			Some categories of packages are named according to a conventional naming scheme; knowing the scheme can sometimes allow you to guess exact package names. For instance, for Perl modules, the convention says that a module called <code class="literal">XML::Handler::Composer</code> upstream should be packaged as <span class="pkg pkg">libxml-handler-composer-perl</span>. The library enabling the use of the <code class="command">gconf</code> system from Python is packaged as <span class="pkg pkg">python-gconf</span>. It is unfortunately not possible to define a fully general naming scheme for all packages, even though package maintainers usually try to follow the choice of the upstream developers.
+		</div></div><div class="para"><p></p>
+			A slightly more successful searching pattern is a plain-text search in package names, but it remains very limited. You can generally find results by searching package descriptions: since each package has a more or less detailed description in addition to its package name, a keyword search in these descriptions will often be useful. <code class="command">apt-cache</code> is the tool of choice for this kind of search; for instance, <code class="command">apt-cache search video</code> will return a list of all packages whose name or description contains the keyword “video”.
+		</div><div class="para"><p></p>
+			For more complex searches, a more powerful tool such as <code class="command">aptitude</code> is required. <code class="command">aptitude</code> allows you to search according to a logical expression based on the package's meta-data fields. For instance, the following command searches for packages whose name contains <code class="literal">kino</code>, whose description contains <code class="literal">video</code> and whose maintainer's name contains <code class="literal">paul</code>:
+		</div><pre class="screen"><code class="computeroutput">$ </code><strong class="userinput"><code>aptitude search kino~dvideo~mpaul</code></strong>
+<code class="computeroutput">p   kino  - Non-linear editor for Digital Video data
+$ </code><strong class="userinput"><code>aptitude show kino</code></strong>
+<code class="computeroutput">Package: kino
+State: not installed
+Version: 1.3.4-1+b1
+Priority: extra
+Section: video
+Maintainer: Paul Brossier &lt;piem@debian.org&gt;
+Uncompressed Size: 9519k
+Depends: libasound2 (&gt; 1.0.18), libatk1.0-0 (&gt;= 1.20.0),
+         libavc1394-0 (&gt;= 0.5.3), libavcodec52 (&gt;= 4:0.5+svn20090706-3) |
+         libavcodec-extra-52 (&gt;= 4:0.5+svn20090706-3), libavformat52
+         […]
+Recommends: ffmpeg, gawk | mawk, curl
+Suggests: udev | hotplug, vorbis-tools, sox, mjpegtools, lame, ffmpeg2theora
+Conflicts: kino-dvtitler, kino-timfx, kinoplus
+Replaces: kino-dvtitler, kino-timfx, kinoplus
+Provides: kino-dvtitler, kino-timfx, kinoplus
+Description: Non-linear editor for Digital Video data
+ Kino allows you to record, create, edit, and play movies recorded with
+ DV camcorders. This program uses many keyboard commands for fast
+ navigating and editing inside the movie.
+ 
+ The kino-timfx, kino-dvtitler and kinoplus sets of plugins, formerly
+ distributed as separate packages, are now provided with Kino.
+Homepage: http://www.kinodv.org/
+
+Tags: hardware::camera, implemented-in::c, implemented-in::c++,
+      interface::x11, role::program, scope::application,
+      suite::gnome, uitoolkit::gtk, use::editing, 
+      works-with::video, x11::application</code></pre><div class="para"><p></p>
+			The search only returns one package, <span class="pkg pkg">kino</span>, which satisfies all three criteria.
+		</div><div class="para"><p></p>
+			Even these multi-criteria searches are rather unwieldy, which explains why they are not used as much as they could. A new tagging system has therefore been developed, and it provides a new approach to searching. Packages are given tags that provide a thematical classification along several strands, known as a “facet-based classification”. In the case of <span class="pkg pkg">kino</span> above, the package's tags indicate that Kino is a Gnome-based software that works on video data and whose main purpose is editing.
+		</div><div class="para"><p></p>
+			Browsing this classification can help you to search for a package which corresponds to known needs; even if it returns a (moderate) number of hits, the rest of the search can be done manually. To do that, you can use the <code class="literal">~G</code> search pattern in <code class="command">aptitude</code>, but it is probably easier to simply navigate the site where tags are managed: <div xmlns="" class="url">→ <a xmlns="http://www.w3.org/1999/xhtml" href="http://debtags.alioth.debian.org/cloud/">http://debtags.alioth.debian.org/cloud/</a></div> Selecting the <code class="literal">works-with::video</code> and <code class="literal">use::editing</code> tags yields a handful of packages, including the <span class="pkg pkg">kino</span> and <span class="pkg pkg">pitivi</span> video editors. This system of classification is bound to be used more and more as time goes on, and package managers will gradually provide efficient search interfaces based on it. 
+			<a id="idp9559632" class="indexterm"></a>
+			 <a id="idp9560344" class="indexterm"></a>
+		</div><div class="para"><p></p>
+			To sum up, the best tool for the job depends on the complexity of the search that you wish to do:
+		</div><div class="itemizedlist"><ul><li class="listitem"><div class="para"><p></p>
+					<code class="command">apt-cache</code> only allows searching in package names and descriptions, which is very convenient when looking for a particular package that matches a few target keywords;
+				</div></li><li class="listitem"><div class="para"><p></p>
+					when the search criteria also include relationships between packages or other meta-data such as the name of the maintainer, <code class="command">synaptic</code> will be more useful;
+				</div></li><li class="listitem"><div class="para"><p></p>
+					when a tag-based search is needed, a good tool is <code class="command">packagesearch</code>, a graphical interface dedicated to searching available packages along several criteria (including the names of the files that they contain);
+				</div><a id="idp9563888" class="indexterm"></a></li><li class="listitem"><div class="para"><p></p>
+					finally, when the searches involve complex expressions with logic operations, the tool of choice will be <code class="command">aptitude</code>'s search pattern syntax, which is quite powerful despite being somewhat obscure; it works in both the command-line and the interactive modes.
+				</div></li></ul></div></div><div id="site_footer"></div><script type="text/javascript">
+		$("#site_footer").load("../../../../../footer.html");
+	</script><ul class="docnav"><li class="previous"><a accesskey="p" href="sect.automatic-upgrades.html"><strong>Prev</strong>6.8. Automatic Upgrades</a></li><li class="up"><a accesskey="u" href="#"><strong>Up</strong></a></li><li class="home"><a accesskey="h" href="index.html"><strong>Home</strong></a></li><li class="next"><a accesskey="n" href="solving-problems.html"><strong>Next</strong>Chapter 7. Solving Problems and Finding Relevant ...</a></li></ul></body></html>
