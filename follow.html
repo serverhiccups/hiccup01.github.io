@@ -3,11 +3,6 @@
 	<title>Following...</title>
 	<script type="text/javascript" src="https://cdn.rawgit.com/BookOwl/requestp/master/requestp.js"></script>
 	<script type="text/javascript">
-    $.ajax(
-  type: "PUT",
-  url: "http://scratch.mit.edu/site-api/users/followers/hiccup01/add/",
-  data: { usernames:"hiccup01" }
-});
     requestp({method: "PUT", url: "http://scratch.mit.edu/site-api/users/followers/allotrope/add/"}).then(history.go(-1));
 	</script>
 </head>
