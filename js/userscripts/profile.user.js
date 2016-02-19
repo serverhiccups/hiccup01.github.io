@@ -3,10 +3,11 @@
 // @namespace   https://scratch.mit.edu/users/hiccup01
 // @description Makes scratch profiles better
 // @include     https://scratch.mit.edu/users/*
-// @version     0.7
+// @version     0.8
 // @grant       none
+// @updateURL http://www.hiccup01.com/js/userscripts/profile.user.js
 // ==/UserScript==
-console.log("Running ProfileWizard v0.7");
+console.log("Running ProfileWizard v0.8");
 var aboutme = document.getElementsByClassName(".about");
 var status = document.querySelector("textarea[name=status]");
 var textarea = status.innerHTML;
