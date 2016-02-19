@@ -22,4 +22,3 @@ var bler = document.body.style.background = colour;
 } else {
  console.log("No colour found or invalid colour.");   
 }
-≤≥
