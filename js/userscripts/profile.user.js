@@ -6,7 +6,7 @@
 // @version     0.3
 // @grant       none
 // ==/UserScript==
-console.log("Running ProfileWizard v0.3");
+console.log("Running ProfileWizard v0.4");
 var aboutme = document.getElementsByClassName(".about");
 var zstatus = document.querySelector("textarea[name=status]");
 var textarea = zstatus.innerHTML;
