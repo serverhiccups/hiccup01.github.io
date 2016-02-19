@@ -14,7 +14,6 @@ var status = document.querySelector("textarea[name=status]");
 var textarea = status.innerHTML;
 var colour = textarea.substring((textarea.indexOf("§") + 1), (textarea.indexOf("§") + 8));
 var url = textarea.substring((textarea.indexOf("≤") + 1), (textarea.indexOf("≥")));
-console.log(url);
 colour.toString();
 url = encodeURI(url);
 var isOk  = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(colour);
