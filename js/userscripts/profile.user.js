@@ -6,19 +6,26 @@
 // @include     https://scratch.mit.edu/*
 // @exclude     https://scratch.mit.edu
 // @exclude     https://scratch.mit.edu/discuss/*
-// @exclude     https://scratch.mit.edu/projects/*/#editor
-// @version     2.3
+// @version     2.7
 // @grant       none
 // @updateURL   http://www.hiccup01.com/js/userscripts/profile.user.js
 // @icon        http://www.hiccup01.com/img/pw.png
 // ==/UserScript==
-console.log("Running ProfileWizard v2.3");
-document.body.style.height = "auto";
+console.log("Running ProfileWizard v2.7");
+function updateBodyHeight() {
+ if (location.hash === "#editor") {
+  document.body.style.height = "";
+ } else {
+  document.body.style.height = "auto";
+ }
+}
+window.addEventListener("hashchange", updateBodyHeight);
+updateBodyHeight();
 var aboutme = document.getElementsByClassName(".about");
 var status = document.querySelector("textarea[name=status]");
-if (status == null || undefined || "undefined") {
+if (status === null || undefined || "undefined") {
     status = document.getElementsByClassName("overview")[1];
-}if (status == null || undefined || "undefined") {
+}if (status === null || undefined || "undefined") {
     status = document.getElementById("description").childNodes[3].childNodes[1];
 }
 var textarea = status.innerHTML;
@@ -28,12 +35,12 @@ var url = textarea.substring((textarea.indexOf("â‰¤") + 1), (textarea.indexOf("â
 colour.toString();
 url = encodeURI(url);
 var isOk  = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(colour);
-if (isOk  === true || url != "" || null || "null" || undefined) {
+if (isOk  === true || url !== "" || null || "null" || undefined) {
 if (isOk === true) {
 	console.log("Set page colour to: " + colour);
-	if (url != "" || null || "null" || undefined) {
+	if (url !== "" || null || "null" || undefined) {
 		colour = colour.concat(" url(\"", url, "\") repeat");
-	};
+	}
 } else {
 	colour = "#FFFFFF url(\"" + url + "\") repeat";
 }
@@ -41,4 +48,5 @@ document.body.style.background = colour;
 } else {
 console.log("No colour found or invalid colour.");
 }
+
 
