@@ -6,6 +6,7 @@
 // @include     https://scratch.mit.edu/*
 // @exclude     https://scratch.mit.edu
 // @exclude     https://scratch.mit.edu/discuss/*
+// @exclude     https://scratch.mit.edu/projects/*/#editor
 // @version     2.2
 // @grant       none
 // @updateURL   http://www.hiccup01.com/js/userscripts/profile.user.js
