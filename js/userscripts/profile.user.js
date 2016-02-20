@@ -7,12 +7,12 @@
 // @exclude     https://scratch.mit.edu
 // @exclude     https://scratch.mit.edu/discuss/*
 // @exclude     https://scratch.mit.edu/projects/*/#editor
-// @version     2.2
+// @version     2.3
 // @grant       none
 // @updateURL   http://www.hiccup01.com/js/userscripts/profile.user.js
 // @icon        http://www.hiccup01.com/img/pw.png
 // ==/UserScript==
-console.log("Running ProfileWizard v2.2");
+console.log("Running ProfileWizard v2.3");
 document.body.style.height = "auto";
 var aboutme = document.getElementsByClassName(".about");
 var status = document.querySelector("textarea[name=status]");
