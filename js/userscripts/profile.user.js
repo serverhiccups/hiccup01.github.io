@@ -6,12 +6,12 @@
 // @include     https://scratch.mit.edu/*
 // @exclude     https://scratch.mit.edu
 // @exclude     https://scratch.mit.edu/discuss/*
-// @version     2.7
+// @version     2.8
 // @grant       none
 // @updateURL   http://www.hiccup01.com/js/userscripts/profile.user.js
 // @icon        http://www.hiccup01.com/img/pw.png
 // ==/UserScript==
-console.log("Running ProfileWizard v2.7");
+console.log("Running ProfileWizard v2.8");
 function updateBodyHeight() {
  if (location.hash === "#editor") {
   document.body.style.height = "";
@@ -23,9 +23,9 @@ window.addEventListener("hashchange", updateBodyHeight);
 updateBodyHeight();
 var aboutme = document.getElementsByClassName(".about");
 var status = document.querySelector("textarea[name=status]");
-if (status === null || undefined || "undefined") {
+if (status == null || status == undefined || status == "undefined") {
     status = document.getElementsByClassName("overview")[1];
-}if (status === null || undefined || "undefined") {
+}if (status == null || status == undefined || status == "undefined") {
     status = document.getElementById("description").childNodes[3].childNodes[1];
 }
 var textarea = status.innerHTML;
@@ -35,8 +35,8 @@ var url = textarea.substring((textarea.indexOf("â‰¤") + 1), (textarea.indexOf("â
 colour.toString();
 url = encodeURI(url);
 var isOk  = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(colour);
-if (isOk  === true || url !== "" || null || "null" || undefined) {
-if (isOk === true) {
+if (isOk  == true || url !== "" || null || "null" || undefined) {
+if (isOk == true) {
 	console.log("Set page colour to: " + colour);
 	if (url !== "" || null || "null" || undefined) {
 		colour = colour.concat(" url(\"", url, "\") repeat");
