@@ -3,14 +3,17 @@
 // @namespace   https://scratch.mit.edu/users/hiccup01
 // @description Makes scratch profiles better
 // @include     https://scratch.mit.edu/users/*
-// @version     1.4
+// @version     1.6
 // @grant       none
 // @updateURL http://www.hiccup01.com/js/userscripts/profile.user.js
 // ==/UserScript==
-console.log("Running ProfileWizard v1.4");
+console.log("Running ProfileWizard v1.6");
 document.body.style.height = "auto";
 var aboutme = document.getElementsByClassName(".about");
 var status = document.querySelector("textarea[name=status]");
+if (status === null) {
+    status = document.getElementsByClassName("overview")[1];
+}
 var textarea = status.innerHTML;
 var colour = textarea.substring((textarea.indexOf("§") + 1), (textarea.indexOf("§") + 8));
 var url = textarea.substring((textarea.indexOf("≤") + 1), (textarea.indexOf("≥")));
