@@ -2,14 +2,16 @@
 // @name        ProfileWizard
 // @namespace   https://scratch.mit.edu/users/hiccup01
 // @description Makes scratch profiles better
+// @author      hiccup01
 // @include     https://scratch.mit.edu/*
 // @exclude     https://scratch.mit.edu
 // @exclude     https://scratch.mit.edu/discuss/*
-// @version     2.1
+// @version     2.2
 // @grant       none
-// @updateURL http://www.hiccup01.com/js/userscripts/profile.user.js
+// @updateURL   http://www.hiccup01.com/js/userscripts/profile.user.js
+// @icon        http://www.hiccup01.com/img/pw.png
 // ==/UserScript==
-console.log("Running ProfileWizard v2.1");
+console.log("Running ProfileWizard v2.2");
 document.body.style.height = "auto";
 var aboutme = document.getElementsByClassName(".about");
 var status = document.querySelector("textarea[name=status]");
