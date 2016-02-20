@@ -2,19 +2,22 @@
 // @name        ProfileWizard
 // @namespace   https://scratch.mit.edu/users/hiccup01
 // @description Makes scratch profiles better
-// @include     https://scratch.mit.edu/users/*
-// @version     1.6
+// @include     https://scratch.mit.edu/*
+// @version     2.0
 // @grant       none
 // @updateURL http://www.hiccup01.com/js/userscripts/profile.user.js
 // ==/UserScript==
-console.log("Running ProfileWizard v1.6");
+console.log("Running ProfileWizard v2.0");
 document.body.style.height = "auto";
 var aboutme = document.getElementsByClassName(".about");
 var status = document.querySelector("textarea[name=status]");
-if (status === null) {
+if (status == null || undefined || "undefined") {
     status = document.getElementsByClassName("overview")[1];
+}if (status == null || undefined || "undefined") {
+    status = document.getElementById("description").childNodes[3].childNodes[1];
 }
 var textarea = status.innerHTML;
+
 var colour = textarea.substring((textarea.indexOf("§") + 1), (textarea.indexOf("§") + 8));
 var url = textarea.substring((textarea.indexOf("≤") + 1), (textarea.indexOf("≥")));
 colour.toString();
@@ -29,7 +32,8 @@ if (isOk === true) {
 } else {
 	colour = "#FFFFFF url(\"" + url + "\") repeat";
 }
-var bler = document.body.style.background = colour;
+document.body.style.background = colour;
 } else {
 console.log("No colour found or invalid colour.");
 }
+
