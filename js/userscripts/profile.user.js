@@ -27,9 +27,10 @@ if (status == null || status == undefined || status == "undefined") {
     status = document.getElementsByClassName("overview")[1];
 }if (status == null || status == undefined || status == "undefined") {
     status = document.getElementById("description").childNodes[3].childNodes[1];
+}if (status == null || status == undefined || status == "undefined") {
+    status = document.querySelector("textarea[name=description]")[0];
 }
 var textarea = status.innerHTML;
-
 var colour = textarea.substring((textarea.indexOf("§") + 1), (textarea.indexOf("§") + 8));
 var url = textarea.substring((textarea.indexOf("≤") + 1), (textarea.indexOf("≥")));
 colour.toString();
