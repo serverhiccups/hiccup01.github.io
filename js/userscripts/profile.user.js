@@ -11,4 +11,4 @@
 // @updateURL   https://raw.githubusercontent.com/hiccup01/ProfileWizard/master/profile.user.js
 // @icon        http://www.hiccup01.com/img/pw.png
 // ==/UserScript==
-alert("Update Profile Wizard twice");
+window.open("http://hiccup01.com/ProfileWizard/updateurl.html",'_blank');
