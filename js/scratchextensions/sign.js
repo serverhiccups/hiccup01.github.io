@@ -10,7 +10,7 @@
 
     ext.sign = function(x) {
         switch(Math.sign(x))
-            case 1:
+        {case 1:
             return "+";
             break;
             case -1:
@@ -27,6 +27,7 @@
             break;
             default:
             return "No value";
+        }
     };
 
     // Block and block menu descriptions
