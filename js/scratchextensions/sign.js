@@ -26,14 +26,14 @@
             return NaN;
             break;
             default:
-            return "No value";
+            return "NaN";
         }
     };
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-        ['r', "%n's sign", "sign", -3],
+        ['r', "%n 's sign", "sign", -3],
         ]
     };
 
