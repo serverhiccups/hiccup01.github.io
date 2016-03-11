@@ -9,7 +9,7 @@
     };
 
     ext.sign = function(x) {
-        switch(Math.sign(x));
+        switch(Math.sign(x))
             case 1:
             return "+";
             break;
